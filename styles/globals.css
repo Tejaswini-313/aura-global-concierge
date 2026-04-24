@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background-color: #f9f7f2;
+  color: #1a1a1a;
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  border-color: rgba(26, 26, 26, 0.12);
+}
+
+.luxury-title {
+  font-family: var(--font-playfair-display), serif;
+  letter-spacing: 0.2em;
+  color: #1a1a1a;
+  text-transform: uppercase;
+}
