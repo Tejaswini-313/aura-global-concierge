@@ -25,152 +25,154 @@ export default function Home() {
   return (
     <>
       <Navbar onOpenInquiry={() => setOpen(true)} />
-      <main className="relative min-h-screen overflow-hidden">
+      <main className="relative min-h-screen overflow-hidden bg-bone">
         <div
           className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=2200&q=80')] bg-cover bg-center"
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-black/65" aria-hidden="true" />
+        <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
 
-        <section className="relative z-10 flex min-h-screen items-center px-8">
-          <div className="mx-auto flex w-full max-w-7xl flex-col gap-12">
-            <p className="luxury-title text-xs text-gold/90">Private Member Platform</p>
+        <section className="relative z-10 flex min-h-screen items-center px-6 md:px-8">
+          <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 md:gap-12 animate-fade-up">
+            <p className="text-xs uppercase tracking-[0.22em] text-white/80">
+              Invitation-Only
+            </p>
             <h1
               ref={titleRef}
-              className="luxury-title max-w-none whitespace-nowrap text-5xl leading-tight md:text-7xl"
+              className="luxury-title max-w-none text-5xl leading-[1.05] text-white md:text-7xl md:whitespace-nowrap"
             >
               KEYASH GLOBAL
             </h1>
-            <p className="max-w-2xl text-lg text-silver/85">
-              A discreet, inquiry-only gateway to private aviation, bespoke real
+            <p className="max-w-2xl text-base text-white/80 md:text-lg">
+              A discreet, invitation-only gateway to private aviation, bespoke real
               estate, and elite lifestyle management for globally mobile principals.
             </p>
             <div className="flex flex-wrap gap-4">
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="w-fit border border-gold px-8 py-3 text-xs uppercase tracking-[0.2em] text-gold transition hover:bg-gold/10"
+                className="w-fit rounded-full border border-gold/70 bg-white/10 px-6 py-3 text-xs uppercase tracking-[0.22em] text-white backdrop-blur-md transition hover:bg-white/15 md:px-8"
               >
-                Request Member Access
+                Request Private Consultation
               </button>
               <Link
-                href="/member-access"
-                className="w-fit border border-silver/30 px-8 py-3 text-xs uppercase tracking-[0.2em] text-silver transition hover:border-gold hover:text-gold"
+                href="/portal"
+                className="w-fit rounded-full border border-white/20 bg-white/10 px-6 py-3 text-xs uppercase tracking-[0.22em] text-white/90 backdrop-blur-md transition hover:border-gold/60 hover:bg-white/15 md:px-8"
               >
-                Open Member Gateway
+                Member Entrance
               </Link>
             </div>
           </div>
         </section>
 
-        <section id="aviation" className="relative z-10 bg-obsidian px-8 py-24">
+        <section id="services" className="relative z-10 bg-cloud px-6 py-20 md:px-20 md:py-28">
           <div className="mx-auto max-w-7xl">
-            <p className="luxury-title mb-3 text-xs text-gold/90">Private Aviation</p>
-            <h2 className="luxury-title mb-6 max-w-3xl text-4xl md:text-5xl">
-              Long-range aircraft access with discreet global routing.
-            </h2>
-            <p className="mb-12 max-w-3xl text-silver/80">
-              Charter and ownership advisory designed for principals who require
-              total privacy, on-demand availability, and operational precision
-              across multi-country itineraries.
+            <p className="mb-3 text-xs uppercase tracking-[0.24em] text-charcoal/70">
+              Expertise
             </p>
-            <div className="grid gap-8 md:grid-cols-3">
+            <h2 className="luxury-title text-balance mb-10 max-w-4xl text-3xl text-charcoal md:text-5xl">
+              Discreet stewardship for principals who operate above the noise.
+            </h2>
+
+            <div className="grid gap-6 md:grid-cols-3">
               {[
                 {
-                  title: "Transcontinental Jet Fleet",
-                  body: "Gulfstream and Bombardier profiles matched to range, cabin layout, and crew standards.",
+                  title: "Aviation",
+                  body: "Zero-latency global transit. Your fleet awaits, synchronized with your itinerary before you even confirm.",
                   image:
-                    "https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=1400&q=80"
+                    "https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=1600&q=80"
                 },
                 {
-                  title: "Secure Ground-to-Air Protocols",
-                  body: "Curated FBO handling, armored transfers, and discreet terminal transitions.",
+                  title: "Real Estate",
+                  body: "Off-market legacy assets. We secure the postcodes that never reach the public eye.",
                   image:
-                    "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1400&q=80"
+                    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80"
                 },
                 {
-                  title: "Concierge Flight Briefing",
-                  body: "End-to-end route intelligence, weather risk planning, and bespoke in-cabin service.",
+                  title: "Lifestyle",
+                  body: "Anticipatory management. We handle the complexities of your world so you can remain focused on yours.",
                   image:
-                    "https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?auto=format&fit=crop&w=1400&q=80"
+                    "https://images.unsplash.com/photo-1520939817895-060bdaf4fe1b?auto=format&fit=crop&w=1600&q=80"
                 }
               ].map((item) => (
-                <article key={item.title} className="border border-silver/20 bg-white/[0.02] p-4">
-                  <div className="relative mb-4 h-48 w-full overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
+                <article
+                  key={item.title}
+                  className="group relative overflow-hidden border border-white/10 bg-[#1B1410]/75 p-6 shadow-glass backdrop-blur-xl transition will-change-transform hover:-translate-y-1 hover:shadow-[0_18px_60px_rgba(27,20,16,0.45)]"
+                >
+                  <div className="pointer-events-none absolute inset-0">
+                    <div className="absolute inset-0 opacity-30 transition-opacity duration-500 group-hover:opacity-45">
+                      <Image
+                        src={item.image}
+                        alt=""
+                        fill
+                        className="object-cover opacity-60 group-hover:animate-ken-burns"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/50 to-black/70" />
+                    <div className="absolute inset-0 bg-[radial-gradient(70%_50%_at_20%_10%,rgba(212,175,55,0.20),transparent_60%)]" />
                   </div>
-                  <h3 className="luxury-title mb-3 text-lg">{item.title}</h3>
-                  <p className="text-silver/75">{item.body}</p>
+
+                  <div className="relative">
+                    <p className="mb-3 text-xs uppercase tracking-[0.26em] text-amber/95">
+                      {item.title}
+                    </p>
+                    <p className="text-pretty text-sm leading-relaxed text-white/80 md:text-base">
+                      {item.body}
+                    </p>
+                    <div className="mt-6 h-px w-16 bg-gradient-to-r from-amber/70 to-transparent" />
+                  </div>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="estates" className="relative z-10 bg-black px-8 py-24">
-          <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2">
-            <div>
-              <p className="luxury-title mb-3 text-xs text-gold/90">Bespoke Real Estate</p>
-              <h2 className="luxury-title mb-6 text-4xl md:text-5xl">
-                Exceptional homes sourced through private channels.
-              </h2>
-              <p className="mb-8 text-silver/80">
-                From Monaco waterfront penthouses to secluded alpine compounds, we
-                execute acquisition and lifestyle readiness with complete discretion.
-              </p>
-              <Link
-                href="/member-access"
-                className="inline-flex border border-gold px-6 py-3 text-xs uppercase tracking-[0.2em] text-gold transition hover:bg-gold/10"
-              >
-                View Estate Access
-              </Link>
-            </div>
-            <div className="relative min-h-[340px] overflow-hidden border border-silver/20">
-              <Image
-                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80"
-                alt="Luxury estate interior"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
+        <section id="legacy" className="relative z-10 bg-bone px-6 py-20 md:px-8 md:py-28">
+          <div className="mx-auto max-w-7xl">
+            <p className="mb-3 text-xs uppercase tracking-[0.22em] text-charcoal/70">
+              The Legacy
+            </p>
+            <h2 className="luxury-title mb-6 max-w-4xl text-3xl text-charcoal md:text-5xl">
+              A single desk built for principals, families, and private offices.
+            </h2>
+            <p className="max-w-3xl text-base text-charcoal/70 md:text-lg">
+              KEYASH Global operates with a privacy-first posture: fewer promises,
+              higher standards, and a measured pace. We protect time, reduce exposure,
+              and execute with discretion across aviation, property, and bespoke
+              lifestyle requirements.
+            </p>
           </div>
         </section>
 
-        <section id="concierge" className="relative z-10 bg-obsidian px-8 py-24">
-          <div className="mx-auto max-w-7xl text-center">
-            <p className="luxury-title mb-3 text-xs text-gold/90">Elite Lifestyle</p>
-            <h2 className="luxury-title mb-6 text-4xl md:text-5xl">
-              A single desk for the world&apos;s most demanding calendars.
-            </h2>
-            <p className="mx-auto mb-10 max-w-3xl text-silver/80">
-              Yacht charters, private security, family office coordination, medical
-              continuity, invitation-only events, and destination operations managed
-              by one senior concierge team.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button
-                type="button"
-                onClick={() => setOpen(true)}
-                className="border border-gold px-6 py-3 text-xs uppercase tracking-[0.2em] text-gold transition hover:bg-gold/10"
-              >
-                Start Concierge Inquiry
-              </button>
-              <Link
-                href="/register"
-                className="border border-silver/30 px-6 py-3 text-xs uppercase tracking-[0.2em] text-silver transition hover:border-gold hover:text-gold"
-              >
-                Apply for Membership
-              </Link>
+        <footer className="relative z-10 bg-[#0E0F12] px-6 py-14 text-white md:px-8">
+          <div className="mx-auto max-w-7xl">
+            <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+              <div>
+                <p className="luxury-title text-sm text-white">
+                  <span>KEYASH</span>{" "}
+                  <span className="text-gold">GLOBAL</span>
+                </p>
+                <p className="mt-4 max-w-md text-sm text-white/60">
+                  Discreet, invitation-only operations for globally mobile principals.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 text-xs uppercase tracking-[0.22em] text-white/70">
+                <Link href="/privacy-policy" className="transition hover:text-white">
+                  Privacy Policy
+                </Link>
+                <Link href="/nda-agreement" className="transition hover:text-white">
+                  NDA Agreement
+                </Link>
+              </div>
+            </div>
+
+            <div className="mt-12 border-t border-white/10 pt-6 text-xs text-white/50">
+              © {new Date().getFullYear()} KEYASH Global. All rights reserved.
             </div>
           </div>
-        </section>
+        </footer>
       </main>
       <InquiryModal open={open} onClose={() => setOpen(false)} />
     </>

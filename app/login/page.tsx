@@ -76,112 +76,115 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="grid min-h-screen grid-cols-1 bg-[#F9F7F2] md:grid-cols-2">
-      <section className="relative hidden md:block">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1610642372651-fe6e7bc2097b?auto=format&fit=crop&w=1800&q=80')"
-          }}
-          aria-hidden="true"
-        />
-        <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
-      </section>
+    <main className="relative flex min-h-screen items-center justify-center bg-cloud px-6 py-16 md:px-20">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(60%_40%_at_50%_0%,rgba(212,175,55,0.10),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(40%_30%_at_20%_30%,rgba(27,20,16,0.08),transparent_65%)]" />
+      </div>
 
-      <section className="flex items-center justify-center px-8 py-16">
-        <div className="w-full max-w-md space-y-8">
-          <p className="text-xs uppercase tracking-[0.18em] text-[#C5A059]">
+      <section className="relative w-full max-w-md p-[2px] shadow-glass">
+        <div className="absolute inset-0 bg-gradient-to-b from-amber/45 via-transparent to-transparent opacity-70" />
+        <div className="relative border border-white/10 bg-espresso/85 p-8 backdrop-blur-xl md:p-10">
+        <div className="mb-8 text-center">
+          <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-amber/45 bg-white/5">
+            <span className="font-heading text-lg tracking-[0.22em] text-amber">
+              KY
+            </span>
+          </div>
+          <p className="text-xs uppercase tracking-[0.26em] text-white/70">
             KEYASH GLOBAL
           </p>
-          <h1 className="font-heading text-3xl tracking-[0.2em] text-[#1A1A1A]">
-            {mode === "login" ? "Member Access" : "Membership Enrollment"}
+          <h1 className="mt-4 text-balance font-heading text-2xl tracking-tight text-white md:text-3xl">
+            {mode === "login"
+              ? "Secure Identification"
+              : "Inquiry for Membership"}
           </h1>
+        </div>
 
-          <div className="inline-flex rounded-full border border-[#1A1A1A]/15 p-1">
-            <button
-              type="button"
-              onClick={() => setMode("login")}
-              className={`rounded-full px-4 py-2 text-xs uppercase tracking-[0.18em] transition ${
-                mode === "login"
-                  ? "bg-[#C5A059] text-[#1A1A1A]"
-                  : "text-[#1A1A1A]/70 hover:text-[#1A1A1A]"
-              }`}
-            >
-              Login
-            </button>
-            <button
-              type="button"
-              onClick={() => setMode("register")}
-              className={`rounded-full px-4 py-2 text-xs uppercase tracking-[0.18em] transition ${
-                mode === "register"
-                  ? "bg-[#C5A059] text-[#1A1A1A]"
-                  : "text-[#1A1A1A]/70 hover:text-[#1A1A1A]"
-              }`}
-            >
-              Register
-            </button>
-          </div>
+        <div className="mb-6 inline-flex w-full rounded-full border border-white/10 bg-white/5 p-1">
+          <button
+            type="button"
+            onClick={() => setMode("login")}
+            className={`w-1/2 rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.24em] transition ${
+              mode === "login"
+                ? "bg-white/10 text-white"
+                : "text-white/60 hover:text-white"
+            }`}
+          >
+            Secure Identification
+          </button>
+          <button
+            type="button"
+            onClick={() => setMode("register")}
+            className={`w-1/2 rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.24em] transition ${
+              mode === "register"
+                ? "bg-white/10 text-white"
+                : "text-white/60 hover:text-white"
+            }`}
+          >
+            Inquiry for Membership
+          </button>
+        </div>
 
-          <form onSubmit={onSubmit} className="space-y-4">
-            {mode === "register" ? (
-              <input
-                ref={(el) => {
-                  fieldsRef.current[0] = el;
-                }}
-                name="fullName"
-                required
-                placeholder="Full Name"
-                className="w-full border border-[#1A1A1A]/15 bg-white/70 px-4 py-3 text-sm text-[#1A1A1A] outline-none transition focus:border-[#C5A059]"
-              />
-            ) : null}
-
+        <form onSubmit={onSubmit} className="space-y-4">
+          {mode === "register" ? (
             <input
               ref={(el) => {
-                fieldsRef.current[1] = el;
+                fieldsRef.current[0] = el;
               }}
-              name="email"
-              type="email"
+              name="fullName"
               required
-              placeholder="Private Email"
-              className="w-full border border-[#1A1A1A]/15 bg-white/70 px-4 py-3 text-sm text-[#1A1A1A] outline-none transition focus:border-[#C5A059]"
+              placeholder="Full Name"
+              className="w-full border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-amber/70 focus:ring-1 focus:ring-[#D4AF37]"
             />
-            <input
-              ref={(el) => {
-                fieldsRef.current[2] = el;
-              }}
-              name="password"
-              type="password"
-              required
-              minLength={8}
-              placeholder="Password"
-              className="w-full border border-[#1A1A1A]/15 bg-white/70 px-4 py-3 text-sm text-[#1A1A1A] outline-none transition focus:border-[#C5A059]"
-            />
+          ) : null}
 
-            <button
-              ref={(el) => {
-                fieldsRef.current[3] = el;
-              }}
-              type="submit"
-              disabled={loading}
-              className="w-full border border-[#C5A059] px-4 py-3 text-xs uppercase tracking-[0.2em] text-[#1A1A1A] transition hover:bg-[#C5A059]/15 disabled:opacity-60"
-            >
-              {loading
-                ? "Please Wait..."
-                : mode === "login"
-                  ? "Enter Portal"
-                  : "Create Membership"}
-            </button>
-          </form>
+          <input
+            ref={(el) => {
+              fieldsRef.current[1] = el;
+            }}
+            name="email"
+            type="email"
+            required
+            placeholder="Private Email"
+            className="w-full border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-amber/70 focus:ring-1 focus:ring-[#D4AF37]"
+          />
+          <input
+            ref={(el) => {
+              fieldsRef.current[2] = el;
+            }}
+            name="password"
+            type="password"
+            required
+            minLength={8}
+            placeholder="Password"
+            className="w-full border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-amber/70 focus:ring-1 focus:ring-[#D4AF37]"
+          />
 
-          {message ? <p className="text-sm text-[#1A1A1A]/80">{message}</p> : null}
+          <button
+            ref={(el) => {
+              fieldsRef.current[3] = el;
+            }}
+            type="submit"
+            disabled={loading}
+            className="w-full border border-amber/60 bg-white/5 px-4 py-3 text-xs uppercase tracking-[0.24em] text-white transition hover:bg-white/10 disabled:opacity-60"
+          >
+            {loading
+              ? "Please Wait..."
+              : mode === "login"
+                ? "Secure Identification"
+                : "Inquiry for Membership"}
+          </button>
+        </form>
 
-          <p className="text-sm text-[#1A1A1A]/65">
-            Looking for the legacy application flow?
-            <Link href="/register" className="ml-2 text-[#C5A059] hover:underline">
-              Open registration page
-            </Link>
-          </p>
+        {message ? <p className="mt-5 text-sm text-white/70">{message}</p> : null}
+
+        <p className="mt-6 text-xs uppercase tracking-[0.22em] text-white/45">
+          Looking for the legacy application flow?
+          <Link href="/register" className="ml-2 text-amber hover:underline">
+            Open registration page
+          </Link>
+        </p>
         </div>
       </section>
     </main>

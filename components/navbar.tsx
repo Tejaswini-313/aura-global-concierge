@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 type NavbarProps = {
@@ -7,42 +8,107 @@ type NavbarProps = {
 };
 
 export function Navbar({ onOpenInquiry }: NavbarProps) {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-silver/15 bg-black/20 backdrop-blur-xl">
-      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5">
-        <Link href="/" className="luxury-title text-sm text-[#1A1A1A]">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-white/10 backdrop-blur-xl">
+      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 md:px-8">
+        <Link href="/" className="luxury-title text-sm text-charcoal">
           <span>KEYASH</span>{" "}
           <span className="text-gold">GLOBAL</span>
         </Link>
 
-        <div className="flex items-center gap-8 text-sm uppercase tracking-[0.14em] text-silver/90">
-          <Link href="#aviation" className="transition hover:text-gold">
-            Aviation
+        <div className="hidden items-center gap-10 text-xs uppercase tracking-[0.22em] text-white/80 md:flex">
+          <Link href="#services" className="transition hover:text-white">
+            The Portfolio
           </Link>
-          <Link href="#estates" className="transition hover:text-gold">
-            Estates
+          <Link href="#services" className="transition hover:text-white">
+            The Fleet
           </Link>
-          <Link href="#concierge" className="transition hover:text-gold">
-            Concierge
+          <Link href="#legacy" className="transition hover:text-white">
+            The Legacy
           </Link>
         </div>
 
         <div className="flex items-center gap-3">
           <Link
-            href="/member-access"
-            className="relative overflow-hidden rounded-full border border-gold px-5 py-2 text-xs uppercase tracking-[0.18em] text-gold transition hover:bg-gold/10"
+            href="/portal"
+            className="relative overflow-hidden rounded-full border border-white/15 bg-white/10 px-5 py-2 text-xs uppercase tracking-[0.22em] text-white shadow-glass backdrop-blur-xl transition hover:border-gold/50 hover:bg-white/15"
           >
-            <span className="animate-pulse">Member Access</span>
+            <span className="animate-pulse">Member Entrance</span>
           </Link>
           <button
             type="button"
             onClick={onOpenInquiry}
-            className="hidden border border-silver/30 px-4 py-2 text-xs uppercase tracking-[0.18em] text-silver transition hover:border-gold hover:text-gold lg:inline-flex"
+            className="hidden rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white/90 shadow-glass backdrop-blur-xl transition hover:border-gold/50 hover:bg-white/15 lg:inline-flex"
           >
             Inquire
           </button>
+
+          <button
+            type="button"
+            aria-label="Open menu"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white shadow-glass backdrop-blur-xl transition hover:border-gold/50 hover:bg-white/15 md:hidden"
+          >
+            Menu
+          </button>
         </div>
       </nav>
+
+      {open ? (
+        <div className="md:hidden">
+          <div
+            className="fixed inset-0 z-40 bg-black/35"
+            onClick={() => setOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="absolute inset-x-0 top-full z-50 border-b border-white/10 bg-white/10 backdrop-blur-xl">
+            <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5">
+              <Link
+                href="#services"
+                onClick={() => setOpen(false)}
+                className="rounded-md px-2 py-3 text-xs uppercase tracking-[0.24em] text-white/90 transition hover:bg-white/10"
+              >
+                The Portfolio
+              </Link>
+              <Link
+                href="#services"
+                onClick={() => setOpen(false)}
+                className="rounded-md px-2 py-3 text-xs uppercase tracking-[0.24em] text-white/90 transition hover:bg-white/10"
+              >
+                The Fleet
+              </Link>
+              <Link
+                href="#legacy"
+                onClick={() => setOpen(false)}
+                className="rounded-md px-2 py-3 text-xs uppercase tracking-[0.24em] text-white/90 transition hover:bg-white/10"
+              >
+                The Legacy
+              </Link>
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false);
+                  onOpenInquiry();
+                }}
+                className="mt-2 rounded-md border border-gold/40 bg-white/10 px-4 py-3 text-xs uppercase tracking-[0.24em] text-white shadow-glass backdrop-blur-xl transition hover:bg-white/15"
+              >
+                Request Private Consultation
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </header>
   );
 }
