@@ -50,7 +50,7 @@ export default async function PortalPage() {
         <div className="flex flex-wrap items-center justify-between gap-4 border border-[#1A1A1A]/15 bg-white/70 p-6">
           <div>
             <p className="text-xs uppercase tracking-[0.18em] text-[#C5A059]">
-              Aura Global Concierge
+              KEYASH Global Global
             </p>
             <h1 className="mt-2 font-heading text-3xl tracking-[0.2em]">
               Welcome, {user.email}

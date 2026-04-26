@@ -10,8 +10,9 @@ export function Navbar({ onOpenInquiry }: NavbarProps) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-silver/15 bg-black/20 backdrop-blur-xl">
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5">
-        <Link href="/" className="luxury-title text-sm text-gold">
-          Aura Global Concierge
+        <Link href="/" className="luxury-title text-sm text-[#1A1A1A]">
+          <span>KEYASH</span>{" "}
+          <span className="text-gold">GLOBAL</span>
         </Link>
 
         <div className="flex items-center gap-8 text-sm uppercase tracking-[0.14em] text-silver/90">

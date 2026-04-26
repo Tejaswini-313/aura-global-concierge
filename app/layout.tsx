@@ -14,7 +14,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Aura Global Concierge",
+  title: "Keyash Global | The Key to Your Global Glory",
   description: "Ultra-luxury private access to aviation, estates, and lifestyle."
 };
 
