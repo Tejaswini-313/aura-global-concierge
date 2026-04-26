@@ -37,9 +37,9 @@ export default function Home() {
             <p className="luxury-title text-xs text-gold/90">Private Member Platform</p>
             <h1
               ref={titleRef}
-              className="luxury-title max-w-3xl text-5xl leading-tight md:text-7xl"
+              className="luxury-title max-w-none whitespace-nowrap text-5xl leading-tight md:text-7xl"
             >
-              KEYASH GLOBAL GLOBAL
+              KEYASH GLOBAL
             </h1>
             <p className="max-w-2xl text-lg text-silver/85">
               A discreet, inquiry-only gateway to private aviation, bespoke real
