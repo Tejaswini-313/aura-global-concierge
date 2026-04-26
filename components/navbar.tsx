@@ -19,21 +19,20 @@ export function Navbar({ onOpenInquiry }: NavbarProps) {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-white/10 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 bg-black/20 backdrop-blur-md">
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 md:px-8">
-        <Link href="/" className="luxury-title text-sm text-charcoal">
-          <span>KEYASH</span>{" "}
-          <span className="text-gold">GLOBAL</span>
+        <Link href="/" className="luxury-title text-sm text-white">
+          <span>KEYASH</span> <span className="text-gold">GLOBAL</span>
         </Link>
 
         <div className="hidden items-center gap-10 text-xs uppercase tracking-[0.22em] text-white/80 md:flex">
-          <Link href="#services" className="transition hover:text-white">
+          <Link href="#services" className="transition hover:text-gold">
             The Portfolio
           </Link>
-          <Link href="#services" className="transition hover:text-white">
+          <Link href="#services" className="transition hover:text-gold">
             The Fleet
           </Link>
-          <Link href="#legacy" className="transition hover:text-white">
+          <Link href="#legacy" className="transition hover:text-gold">
             The Legacy
           </Link>
         </div>
@@ -41,16 +40,16 @@ export function Navbar({ onOpenInquiry }: NavbarProps) {
         <div className="flex items-center gap-3">
           <Link
             href="/portal"
-            className="relative overflow-hidden rounded-full border border-white/15 bg-white/10 px-5 py-2 text-xs uppercase tracking-[0.22em] text-white shadow-glass backdrop-blur-xl transition hover:border-gold/50 hover:bg-white/15"
+            className="relative overflow-hidden rounded-full border border-gold bg-black/60 px-8 py-3 text-xs uppercase tracking-[0.22em] text-white transition hover:bg-black/70"
           >
-            <span className="animate-pulse">Member Entrance</span>
+            <span>Member Entrance</span>
           </Link>
           <button
             type="button"
             onClick={onOpenInquiry}
-            className="hidden rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white/90 shadow-glass backdrop-blur-xl transition hover:border-gold/50 hover:bg-white/15 lg:inline-flex"
+            className="hidden rounded-full bg-gold px-8 py-3 text-xs uppercase tracking-[0.22em] text-black transition hover:brightness-95 lg:inline-flex"
           >
-            Inquire
+            Request Private Consultation
           </button>
 
           <button
@@ -58,7 +57,7 @@ export function Navbar({ onOpenInquiry }: NavbarProps) {
             aria-label="Open menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white shadow-glass backdrop-blur-xl transition hover:border-gold/50 hover:bg-white/15 md:hidden"
+            className="inline-flex rounded-full border border-gold/60 bg-black/50 px-6 py-3 text-xs uppercase tracking-[0.22em] text-white transition hover:bg-black/60 md:hidden"
           >
             Menu
           </button>
@@ -72,7 +71,7 @@ export function Navbar({ onOpenInquiry }: NavbarProps) {
             onClick={() => setOpen(false)}
             aria-hidden="true"
           />
-          <div className="absolute inset-x-0 top-full z-50 border-b border-white/10 bg-white/10 backdrop-blur-xl">
+          <div className="absolute inset-x-0 top-full z-50 bg-black/40 backdrop-blur-md">
             <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5">
               <Link
                 href="#services"
@@ -101,7 +100,7 @@ export function Navbar({ onOpenInquiry }: NavbarProps) {
                   setOpen(false);
                   onOpenInquiry();
                 }}
-                className="mt-2 rounded-md border border-gold/40 bg-white/10 px-4 py-3 text-xs uppercase tracking-[0.24em] text-white shadow-glass backdrop-blur-xl transition hover:bg-white/15"
+                className="mt-2 rounded-md bg-gold px-4 py-3 text-xs uppercase tracking-[0.24em] text-black transition hover:brightness-95"
               >
                 Request Private Consultation
               </button>

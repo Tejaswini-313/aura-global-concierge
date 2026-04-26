@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <>
       <Navbar onOpenInquiry={() => setOpen(true)} />
-      <main className="relative min-h-screen overflow-hidden bg-bone">
+      <main className="relative min-h-screen overflow-hidden bg-obsidian">
         <div
           className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=2200&q=80')] bg-cover bg-center"
           aria-hidden="true"
@@ -51,13 +51,13 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="w-fit rounded-full border border-gold/70 bg-white/10 px-6 py-3 text-xs uppercase tracking-[0.22em] text-white backdrop-blur-md transition hover:bg-white/15 md:px-8"
+                className="w-fit rounded-full bg-gold px-8 py-3 text-xs uppercase tracking-[0.22em] text-black transition hover:brightness-95"
               >
                 Request Private Consultation
               </button>
               <Link
                 href="/portal"
-                className="w-fit rounded-full border border-white/20 bg-white/10 px-6 py-3 text-xs uppercase tracking-[0.22em] text-white/90 backdrop-blur-md transition hover:border-gold/60 hover:bg-white/15 md:px-8"
+                className="w-fit rounded-full border border-gold bg-black/60 px-8 py-3 text-xs uppercase tracking-[0.22em] text-white transition hover:bg-black/70"
               >
                 Member Entrance
               </Link>
