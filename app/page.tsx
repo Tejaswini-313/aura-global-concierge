@@ -39,7 +39,7 @@ export default function Home() {
               ref={titleRef}
               className="luxury-title max-w-3xl text-5xl leading-tight md:text-7xl"
             >
-              KEYASH Global Global GLOBAL
+              KEYASH GLOBAL GLOBAL
             </h1>
             <p className="max-w-2xl text-lg text-silver/85">
               A discreet, inquiry-only gateway to private aviation, bespoke real

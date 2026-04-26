@@ -59,7 +59,7 @@ export function InquiryModal({ open, onClose }: InquiryModalProps) {
             {!supabaseUrl || !supabaseKey ? (
               <div className="p-8 bg-[#FDFBF7] border border-[#C5A059]/20 rounded-sm text-center">
                 <h3 className="font-serif text-[#C5A059] text-xl mb-2 italic">
-                  KEYASH Global Global System Offline
+                  KEYASH GLOBAL System Offline
                 </h3>
                 <p className="text-[#1A1A1A] text-xs tracking-widest uppercase opacity-60">
                   Please ensure environment keys are active.
