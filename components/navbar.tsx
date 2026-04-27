@@ -20,18 +20,16 @@ export function Navbar({ onOpenInquiry }: NavbarProps) {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/5">
+    <header className="fixed top-0 left-0 right-0 z-[100] bg-black/30 backdrop-blur-md">
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 md:px-8">
         
-        {/* LOGO SECTION */}
+        {/* LOGO SECTION - Restored to Luxury Standards */}
         <Link href="/" className="flex items-center gap-3 transition-transform hover:scale-[1.02]">
-          <div className="relative h-11 w-11 overflow-hidden rounded-full border border-[#D4AF37]/60 bg-black shadow-lg shadow-black/50">
-            {/* IMPORTANT: KEYASH.jpg MUST be in your /public folder.
-              If it is in /public/KEYASH.jpg, the src below is correct.
-            */}
+          <div className="relative z-10 h-11 w-11 overflow-hidden rounded-full border border-[#D4AF37]/60 bg-black shadow-xl shadow-black/50">
+            {/* Make sure KEYASH.jpg is in your /public folder */}
             <Image 
               src="/KEYASH.jpg" 
-              alt="KY" 
+              alt="KY"
               fill 
               className="object-cover"
               priority
@@ -43,18 +41,19 @@ export function Navbar({ onOpenInquiry }: NavbarProps) {
           </span>
         </Link>
 
-        {/* DESKTOP NAVIGATION - Elegant Spacing */}
+        {/* DESKTOP NAVIGATION */}
         <div className="hidden items-center gap-12 text-[10px] uppercase tracking-[0.35em] text-white/60 md:flex">
           <Link href="#services" className="transition hover:text-[#D4AF37]">Portfolio</Link>
           <Link href="#services" className="transition hover:text-[#D4AF37]">Fleet</Link>
           <Link href="#legacy" className="transition hover:text-[#D4AF37]">Legacy</Link>
         </div>
 
-        {/* ACTIONS */}
+        {/* ACTIONS SECTION */}
         <div className="flex items-center gap-5">
+          {/* High Contrast Member Entrance Button */}
           <Link
             href="/portal"
-            className="rounded-full border border-white/20 bg-black/60 px-7 py-2.5 text-[10px] uppercase tracking-[0.25em] text-white transition hover:border-[#D4AF37] hover:bg-black/80"
+            className="rounded-full border border-[#D4AF37] bg-black/80 px-7 py-2.5 text-[10px] uppercase tracking-[0.25em] text-white transition hover:bg-black/90"
           >
             Member Entrance
           </Link>
@@ -66,8 +65,34 @@ export function Navbar({ onOpenInquiry }: NavbarProps) {
           >
             Inquire
           </button>
+
+          {/* MOBILE TOGGLE */}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white md:hidden"
+          >
+            <span className="text-[10px] uppercase tracking-widest">{open ? "✕" : "Menu"}</span>
+          </button>
         </div>
       </nav>
+
+      {/* MOBILE MENU */}
+      {open && (
+        <div className="absolute inset-x-0 top-full z-50 border-b border-white/10 bg-black/95 backdrop-blur-2xl md:hidden">
+          <div className="flex flex-col gap-1 p-6">
+            <Link href="#services" onClick={() => setOpen(false)} className="py-4 text-[11px] uppercase tracking-[0.3em] text-white/80 border-b border-white/5">Portfolio</Link>
+            <Link href="#services" onClick={() => setOpen(false)} className="py-4 text-[11px] uppercase tracking-[0.3em] text-white/80 border-b border-white/5">Fleet</Link>
+            <Link href="#legacy" onClick={() => setOpen(false)} className="py-4 text-[11px] uppercase tracking-[0.3em] text-white/80 border-b border-white/5">Legacy</Link>
+            <button
+              onClick={() => { setOpen(false); onOpenInquiry(); }}
+              className="mt-6 rounded-full bg-[#D4AF37] py-4 text-[11px] uppercase tracking-[0.3em] text-black font-bold"
+            >
+              Contact Concierge
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
